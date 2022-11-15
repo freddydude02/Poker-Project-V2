@@ -1,13 +1,10 @@
 package io.nology.pokerprojectv2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
 public class Card {
 	public Character value;
-	public Character Suit;
+	public Suit suit;
 	public Integer dupeCount;
 	public Integer realValue;
 	

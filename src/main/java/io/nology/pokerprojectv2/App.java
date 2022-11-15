@@ -13,7 +13,7 @@ public class App {
 	
     public static void main( String[] args ) throws FileNotFoundException {
     	
-    	File file = new File("/Users/frede/OneDrive/Desktop/poker-hands.txt");
+    	File file = new File("/Users/frede/eclipse-workspace/pokerprojectv2/poker-hands.txt");
     	
     	Scanner sc = new Scanner(file);
     	
@@ -27,7 +27,7 @@ public class App {
 //        	System.out.println(Arrays.toString(total));    	
 //    		String[] total = {"2H", "AS", "TD", "2D", "6C", "2C", "2S", "TC", "9H", "5D"};
         	
-        	String test = findError(total, Card.cardValues());
+        	String test = Player.findError(total, Card.cardValues());
         	
         	if(test == "GO") {
         		
@@ -48,33 +48,7 @@ public class App {
     	
     }
 
-    public static String findError(String[] total, HashMap<Character, Integer> cardValues) {
-    	
-    	if (total.length != 10) return "There must be 10 entries when there are currently " + total.length + " entries";
-    	
-    	int i = 0;
-    	for (String card : total) {
-    		if (cardValues.get(card.charAt(0)) == null) {
-    			return card.charAt(0) + " is an invalid value";
-    		}
-    		
-    		if (card.charAt(1) != 'S' &&
-    				card.charAt(1) != 'H' &&
-    				card.charAt(1) != 'C' &&
-    				card.charAt(1) != 'D' ) {
-    			return card.charAt(1) + " is an invalid suit";
-    		}
-    		
-    		for (int x = i + 1 ; x < total.length; x++) {
-    			
-    			if (card == total[x]) {
-    				return card + " is a duplicate card";
-    			}
-    		}
-    		i++;
-    	}
-    	return "GO";
-    }
+    
     
     public static String determineWinner 
     (ArrayList<Object[]> p1ReadyDataSet, ArrayList<Object[]> p2ReadyDataSet, HashMap<Character, Integer> cardValues,
